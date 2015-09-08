@@ -19,6 +19,9 @@ javadoc {
     options.windowTitle = "Worldpay CSE SDK"
 }
 
+ext.nexusUsername = System.getenv('NEXUS_USER')
+ext.nexusPassword = System.getenv('NEXUS_PASSWORD')
+
 uploadArchives {
 
     def artifactVersion = System.getenv('VERSION')
@@ -64,9 +67,6 @@ uploadArchives {
             }
         }
     }
-
-    ext.nexusUsername = System.getenv('NEXUS_USER')
-    ext.nexusPassword = System.getenv('NEXUS_PASSWORD')
 
     def signArtifacts = "TRUE".equals(System.getenv('SIGNING'))
     def publish = System.getenv('PUBLISH')
