@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Worldpay CSE Demo</string>
+    <string name="card_holder_hint">Card holder name</string>
+    <string name="card_number_hint">Card number</string>
+    <string name="expiry_year_hint">YYYY</string>
+    <string name="expiry_month_hint">MM</string>
+    <string name="cvc_hint">CVC (optional)</string>
+    <string name="encrypt_button_title">Encrypt</string>
+    <string name="encrypted_data_title">Encrypted data</string>
+
+    <string name="expiry_date">Expiry date:</string>
+    <string name="expiry_date_sep">/</string>
+
+   <string-array name="errors">
+       <item>101 - Credit card number is mandatory.</item>
+       <item>102 - Enter a valid credit card number, numbers only and should be between 12 and 20 digits.</item>
+       <item>103 - Enter a valid credit card number, input doesn\'t verify Luhn check.</item>
+       <item>201 - Enter a valid security code, numbers only and should be between 3 and 4 digits.</item>
+       <item>301 - Expiry month is mandatory.</item>
+       <item>302 - Enter a valid expiry month; only numbers expected and in XX form (e.g. 09).</item>
+       <item>303 - Enter a valid expiry month, should range from 01 to 12.</item>
+       <item>304 - Expiry year is mandatory.</item>
+       <item>305 - Enter a valid expiry year, only numbers expected.</item>
+       <item>306 - Expiry date should be in future.</item>
+       <item>401 - Card holder\'s name is mandatory.</item>
+       <item>402 - Name should not exceed thirty characters.</item>
+   </string-array>
+
+</resources>

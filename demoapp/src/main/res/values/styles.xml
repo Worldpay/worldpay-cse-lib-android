@@ -1,0 +1,35 @@
+<resources>
+    <!-- the theme applied to the application or activity -->
+    <style name="AppTheme"
+        parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="colorButtonNormal">@color/secondary_color</item>
+        <!--<item name="colorControlNormal">@color/secondary_color</item>-->
+        <item name="android:textAppearanceButton">@style/MyButtonStyle</item>
+
+        <item name="android:textColorSecondary">@color/secondary_color</item>
+
+        <item name="android:colorControlActivated">@color/secondary_color</item>
+        <item name="colorControlActivated">@color/secondary_color</item>
+
+    </style>
+
+    <style name="ToolBarTheme"
+        parent="@style/Theme.AppCompat.Light.NoActionBar">
+
+        <item name="android:elevation">4dp</item>
+        <item name="colorControlNormal">@color/secondary_color</item>
+        <item name="android:textAppearanceButton">@style/MyButtonStyle</item>
+
+        <item name="android:textColorPrimary">@color/secondary_color</item>
+        <item name="android:textColorSecondary">@color/secondary_color</item>
+
+        <item name="elevation">4dp</item>
+    </style>
+
+    <style name="MyButtonStyle" parent="@style/TextAppearance.AppCompat.Button">
+        <item name="android:textColor">@color/primary_color</item>
+    </style>
+
+    <color name="primary_color">#ffffff</color>
+    <color name="secondary_color">#ef1e13</color>
+</resources>
