@@ -1,3 +1,12 @@
+//
+//  WorldpayCSE.java
+//  WorldpayCSE
+//
+//  Created by Alexandru Catariov on 23/07/2015.
+//  Copyright (c) 2015 WorldPay. All rights reserved.
+//
+//  License information can be found in the LICENSE file
+
 package com.worldpay.cse;
 
 import com.worldpay.cse.jwe.WPJWEObject;
@@ -46,7 +55,7 @@ public class WorldpayCSE {
     public static final String RSA_1_5 = "RSA1_5";
     public static final String A_256_GCM = "A256GCM";
     public static final String API_VERSION = "1.0";
-    public static final String LIB_VERSION = "1.0.0";
+    public static final String LIB_VERSION = "1.0.1";
     public static final String CHANNEL = "android";
 
     private static final Logger LOGGER = Logger.getAnonymousLogger();

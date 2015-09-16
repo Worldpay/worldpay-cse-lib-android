@@ -1,3 +1,12 @@
+//
+//  WPJWEObject.java
+//  WorldpayCSE
+//
+//  Created by Alexandru Catariov on 23/07/2015.
+//  Copyright (c) 2015 WorldPay. All rights reserved.
+//
+//  License information can be found in the LICENSE file
+
 package com.worldpay.cse.jwe;
 
 import com.worldpay.cse.exception.WPCSEException;

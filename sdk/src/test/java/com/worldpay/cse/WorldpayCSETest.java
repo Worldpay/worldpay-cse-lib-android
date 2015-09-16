@@ -1,3 +1,12 @@
+//
+//  WorldpayCSETest.java
+//  WorldpayCSE
+//
+//  Created by Alexandru Catariov on 23/07/2015.
+//  Copyright (c) 2015 WorldPay. All rights reserved.
+//
+//  License information can be found in the LICENSE file
+
 package com.worldpay.cse;
 
 import com.nimbusds.jose.EncryptionMethod;
@@ -145,7 +154,7 @@ public class WorldpayCSETest {
         Assert.assertEquals(EncryptionMethod.A256GCM.getName(), header.getEncryptionMethod().getName());
         Assert.assertEquals("2", header.getKeyID());
         Assert.assertEquals("1.0", header.getCustomParam("com.worldpay.apiVersion"));
-        Assert.assertEquals("1.0.0", header.getCustomParam("com.worldpay.libVersion"));
+        Assert.assertEquals("1.0.1", header.getCustomParam("com.worldpay.libVersion"));
         Assert.assertEquals("android", header.getCustomParam("com.worldpay.channel"));
 
         String json = jweObject.getPayload().toString();
