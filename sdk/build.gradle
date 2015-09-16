@@ -41,8 +41,8 @@ uploadArchives {
 
             licenses {
                 license {
-                    name = 'MIT License'
-                    url = "http://www.opensource.org/licenses/mit-license.php"
+                    name = 'Worldpay License'
+                    url = "https://github.com/Worldpay/worldpay-cse-lib-android/blob/master/LICENSE"
                 }
             }
 
