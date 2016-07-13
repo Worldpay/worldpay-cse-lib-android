@@ -54,7 +54,7 @@ uploadArchives {
             developers {
                 developer {
                     name = "Worldpay CSE Mobile Support"
-                    email = "nicolae.ghimbovschi@worldpay.com"
+                    email = "csesupport@worldpay.com"
                     organization = "Worldpay"
                     organizationUrl = "https://online.worldpay.com"
                 }
