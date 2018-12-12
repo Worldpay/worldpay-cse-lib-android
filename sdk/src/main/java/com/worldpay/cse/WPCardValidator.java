@@ -10,7 +10,6 @@
 package com.worldpay.cse;
 
 import java.util.Calendar;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.regex.Pattern;
@@ -121,11 +120,10 @@ class WPCardValidator {
     }
 
     private boolean isFutureDate(int expiryMonth, int expiryYear) {
-        Date today = new Date();
-        Calendar calendar = Calendar.getInstance();
-        calendar.clear();
-        calendar.set(expiryYear, expiryMonth - 1, 0);
-        return calendar.getTime().after(today);
+        Calendar now = Calendar.getInstance();
+        int currentMonth = now.get(Calendar.MONTH);
+        int currentYear = now.get(Calendar.YEAR);
+        return (expiryYear * 12) + (expiryMonth - 1) >= (currentYear * 12) + currentMonth;
     }
 
     private int validateCardHolderName(String cardHolderName) {

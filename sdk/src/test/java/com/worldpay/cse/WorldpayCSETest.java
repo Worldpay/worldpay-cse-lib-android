@@ -27,6 +27,7 @@ import java.security.KeyPairGenerator;
 import java.security.Security;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
+import java.util.Calendar;
 import java.util.Set;
 
 import com.worldpay.cse.exception.WPCSEException;
@@ -315,6 +316,99 @@ public class WorldpayCSETest {
 
         // no other errors
         Assert.assertEquals(4, errors.size());
+    }
+
+    @Test
+    public void testExpiryDatePreviousMonth() throws Exception {
+        WPCardData cardData = new WPCardData();
+        cardData.setCardNumber("4444333322221111");
+        cardData.setCvc("123");
+
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.MONTH, -1);
+        String month = String.format("%02d", (cal.get(Calendar.MONTH) + 1));
+        String year = Integer.toString(cal.get(Calendar.YEAR));
+        cardData.setExpiryMonth(month);
+        cardData.setExpiryYear(year);
+        cardData.setCardHolderName("John Smith");
+
+        Set<Integer> errors = WorldpayCSE.validate(cardData);
+        Assert.assertTrue(errors.contains(WPValidationErrorCodes.INVALID_EXPIRY_DATE));
+        Assert.assertEquals(1, errors.size());
+    }
+
+    @Test
+    public void testExpiryDateThisMonth() throws Exception {
+        WPCardData cardData = new WPCardData();
+        cardData.setCardNumber("4444333322221111");
+        cardData.setCvc("123");
+
+        Calendar cal = Calendar.getInstance();
+        String currentMonth = String.format("%02d", (cal.get(Calendar.MONTH) + 1));
+        String currentYear = Integer.toString(cal.get(Calendar.YEAR));
+        cardData.setExpiryMonth(currentMonth);
+        cardData.setExpiryYear(currentYear);
+        cardData.setCardHolderName("John Smith");
+
+        Set<Integer> errors = WorldpayCSE.validate(cardData);
+        Assert.assertEquals(0, errors.size());
+    }
+
+    @Test
+    public void testExpiryDateNextMonth() throws Exception {
+        WPCardData cardData = new WPCardData();
+        cardData.setCardNumber("4444333322221111");
+        cardData.setCvc("123");
+
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.MONTH, 1);
+        String month = String.format("%02d", (cal.get(Calendar.MONTH) + 1));
+        String year = Integer.toString(cal.get(Calendar.YEAR));
+
+        cardData.setExpiryMonth(month);
+        cardData.setExpiryYear(year);
+        cardData.setCardHolderName("John Smith");
+
+        Set<Integer> errors = WorldpayCSE.validate(cardData);
+        Assert.assertEquals(0, errors.size());
+    }
+
+    @Test
+    public void testExpiryDatePreviousYear() throws Exception {
+        WPCardData cardData = new WPCardData();
+        cardData.setCardNumber("4444333322221111");
+        cardData.setCvc("123");
+
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.YEAR, -1);
+        String month = String.format("%02d", (cal.get(Calendar.MONTH) + 1));
+        String year = Integer.toString(cal.get(Calendar.YEAR));
+        cardData.setExpiryMonth(month);
+        cardData.setExpiryYear(year);
+        cardData.setCardHolderName("John Smith");
+
+        Set<Integer> errors = WorldpayCSE.validate(cardData);
+        Assert.assertTrue(errors.contains(WPValidationErrorCodes.INVALID_EXPIRY_DATE));
+        Assert.assertEquals(1, errors.size());
+    }
+
+    @Test
+    public void testExpiryDateNextYear() throws Exception {
+        WPCardData cardData = new WPCardData();
+        cardData.setCardNumber("4444333322221111");
+        cardData.setCvc("123");
+
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.YEAR, 1);
+        String month = String.format("%02d", (cal.get(Calendar.MONTH) + 1));
+        String year = Integer.toString(cal.get(Calendar.YEAR));
+
+        cardData.setExpiryMonth(month);
+        cardData.setExpiryYear(year);
+        cardData.setCardHolderName("John Smith");
+
+        Set<Integer> errors = WorldpayCSE.validate(cardData);
+        Assert.assertEquals(0, errors.size());
     }
 
     private WPCardData getWPCardData() {
