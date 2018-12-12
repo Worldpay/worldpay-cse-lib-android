@@ -55,7 +55,7 @@ public class WorldpayCSE {
     public static final String RSA_1_5 = "RSA1_5";
     public static final String A_256_GCM = "A256GCM";
     public static final String API_VERSION = "1.0";
-    public static final String LIB_VERSION = "1.0.3";
+    public static final String LIB_VERSION = "1.0.4";
     public static final String CHANNEL = "android";
 
     private static final Logger LOGGER = Logger.getAnonymousLogger();
